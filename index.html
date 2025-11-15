@@ -7,24 +7,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Poppins',sans-serif; background:#121212; color:#fff; scroll-behavior:smooth;}
+body {font-family:'Poppins',sans-serif; background:#0f0f0f; color:#fff; scroll-behavior:smooth;}
 a {text-decoration:none; color:inherit;}
-/* === Header full-screen === */
+
+/* === Header immersive === */
 header {
-  position:relative; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
-  text-align:center; overflow:hidden; background:linear-gradient(135deg,#6a0dad,#e94560);
+  position:relative; height:120vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; overflow:hidden; background:#0f0f0f;
 }
 header video {
-  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:0.4;
+  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:0.25;
+  filter: brightness(0.6);
 }
 header h1 {
   font-size:4rem; font-weight:800; z-index:1;
   background:linear-gradient(90deg,#ffd700,#ff0080,#00ffff);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow: 0 0 20px rgba(255,255,255,0.4);
+  animation: fadeSlideDown 2s ease forwards;
 }
-header p {font-size:1.5rem; margin-top:15px; z-index:1;}
-.button {z-index:1; margin-top:20px; padding:10px 20px; background:#ff0080; color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:0.3s;}
+header p {
+  font-size:1.5rem; margin-top:20px; z-index:1; opacity:0;
+  animation: fadeSlideUp 2s ease forwards; animation-delay:1s;
+  max-width:700px;
+}
+.button {
+  z-index:1; margin-top:30px; padding:15px 30px; background:#ff0080; color:#fff; border:none; border-radius:12px;
+  font-weight:600; cursor:pointer; transition:0.5s; box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
 .button:hover {background:#00ffff; color:#000; transform:scale(1.1);}
+
+/* === Animations === */
+@keyframes fadeSlideDown {0%{transform:translateY(-60px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+@keyframes fadeSlideUp {0%{transform:translateY(30px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
 </style>
 </head>
 <body>
@@ -34,7 +49,7 @@ header p {font-size:1.5rem; margin-top:15px; z-index:1;}
     <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
   </video>
   <h1>Roman Bouchard</h1>
-  <p>Bienvenue dans mon univers immersif 🔥</p>
+  <p>Bienvenue dans mon univers immersif. Explorez mes projets, découvrez mon histoire et plongez dans mes créations visuelles et documentaires.</p>
   <a href="histoire.html" class="button">Découvrir mon histoire</a>
 </header>
 
